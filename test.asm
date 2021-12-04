@@ -13,7 +13,7 @@ INCLUDE basic.mac ; Load in basic macro library
 ;    BEGIN STACK    |
 ;-------------------|
 DemoStack SEGMENT STACK
-TheStack  DB   32 DUP ('(C) Matthew R.  ') ; Reserves 512 bytes of memory for Stack, containing 'STACK!!!' repeated 64 times
+TheStack  DB   32 DUP ('(C) Matthew R.  ') ; Reserves 512 bytes of memory for Stack, containing '(C) Matthew R.  ' repeated 32 times
 DemoStack ENDS
 ;-------------------|
 ;      END STACK    |
@@ -28,7 +28,7 @@ moveText  DB "Your move, ",'$'
 ; 9D06 = 10011 10100 00011 0
 ; D6B4 = 11010 11010 11010 0
 gameVars  DW 94C6h                               ; lsb is the current player (0 = x, 1 = y), bits 1-15 are board layout (5 bits per row)
-board     DB "   ³   ³   ÄÄÄÅÄÄÄÅÄÄÄ ! ³ ! ³ ! " ; building blocks of the game board
+board     DB "   Â³   Â³   Ã„Ã„Ã„Ã…Ã„Ã„Ã„Ã…Ã„Ã„Ã„ ! Â³ ! Â³ ! " ; building blocks of the game board
 pieces    DB " XO"                               ; possible pieces to place on board
 pattern   DB 88h                                 ; takes the binary form of 10001000, which, if shifted right, will let me draw board chunk 0,0,0,1,0,0,0,1,0,0,0 while only using 1 byte for the pattern
 CRLF      DB 0Dh,0Ah,'$'                         ; EOL String
